@@ -1,17 +1,21 @@
 const express = require('express');
-const app = express();
-const morgan = require('morgan');
+const app = require('./app');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
-app.use(express.json());
-app.use(morgan('dev'));
+dotenv.config({
+    path: './config/config.env'
+});
 
-const userRouter = require('./routes/userRoute');
-const authRouter = require('./routes/authRoute');
+const DB = process.env.DATABASE_LOCAL
+const PORT = process.env.PORT;
 
-// app.post('/user', userController.getUser);
-app.use('/user', userRouter);
-app.use('/auth', authRouter);
+mongoose.connect(DB, {
+    useNewUrlParser: true
+}).then(() => console.log('Database connected successfully!')).catch(err => {
+    console.error(err.message)
+});
 
-app.listen(3000, '127.0.0.1', () => {
-    console.log("Server has started and is listening on port 3000")
+app.listen(PORT, '127.0.0.1', () => {
+    console.log(`Server has started and is listening on port: ${PORT}`);
 });
