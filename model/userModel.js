@@ -43,7 +43,8 @@ const userSchema = mongoose.Schema({
     updatedAt: {
         type: Date,
         default: Date.now()
-    }
+    },
+    isAdmin: Boolean
 });
 
 const User = mongoose.model('User', userSchema);

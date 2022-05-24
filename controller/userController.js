@@ -4,7 +4,7 @@ const {
 } = require('./../utils/statusCodes');
 const User = require('./../model/userModel');
 
-
+// GET ALL USERS IN THE DATABASE
 exports.getUser = async (req, res) => {
     try {
         let allUser = await User.find();
