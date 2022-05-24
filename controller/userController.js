@@ -34,7 +34,7 @@ exports.addUser = async (req, res) => {
     } catch (err) {
         res.status(NOT_FOUND).json({
             status: "Internal Server Error",
-            message: `Error: duplicate or missing keys. Please check the data again....`
+            message: err.message
         });
     }
 };
