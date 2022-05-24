@@ -2,31 +2,31 @@ const mongoose = require('mongoose');
 const productsSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: [true, 'cannot be empty']
     },
     category: {
         type: String,
-        required: true
+        required: [true, 'cannot be empty']
     },
     manufacturer: {
         type: String,
-        required: true
+        required: [true, 'cannot be empty']
     },
     availableItems: {
         type: Number,
-        required: true
+        required: [true, 'cannot be empty']
     },
     price: {
         type: Number,
-        required: true
+        required: [true, 'cannot be empty']
     },
     imageURL: {
         type: String,
-        required: true
+        required: [true, 'cannot be empty']
     },
     description: {
         type: String,
-        required: true
+        required: [true, 'cannot be empty']
     },
     updatedAt: {
         type: Date,

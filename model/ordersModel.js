@@ -3,16 +3,16 @@ const ordersSchema = mongoose.Schema({
     address: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
-        required: true
+        required: [true, 'cannot be empty']
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
-        required: true
+        required: [true, 'cannot be empty']
     },
     quantity: {
         type: Number,
-        required: true
+        required: [true, 'cannot be empty']
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
