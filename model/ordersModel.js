@@ -7,7 +7,7 @@ const ordersSchema = mongoose.Schema({
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: 'Products',
         required: [true, 'cannot be empty']
     },
     quantity: {
