@@ -3,12 +3,10 @@ const ordersSchema = mongoose.Schema({
     address: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Address',
-        required: [true, 'cannot be empty']
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Products',
-        required: [true, 'cannot be empty']
     },
     quantity: {
         type: Number,

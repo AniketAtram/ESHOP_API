@@ -5,8 +5,7 @@ const middleware = require('../middleware/customMiddlewares');
 userRouter
     .route('/')
     .get(userController.getUser)
-userRouter
-    .route('/add')
-    .post(userController.addUser)
+    .post(middleware.checkEmail, userController.addUser)
+
 
 module.exports = userRouter;

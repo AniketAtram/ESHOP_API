@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({
+    path: './../config/config.env'
+});
 const userSchema = mongoose.Schema({
     firstName: {
         type: String,
@@ -15,15 +19,15 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
         required: [true, 'field cannot be empty'],
+        unique: [true, 'email already exists, please try a different email'],
         minLength: [5, 'minimum length is 5'],
         maxLength: [100, 'maximum length allowed is 100'],
-        unique: [true, 'field cannot be empty']
     },
     contactNumber: {
         type: Number,
         required: [true, 'field cannot be empty'],
-        min: [10, 'minimum digits is 10 got {VALUE}'],
-        max: [10, 'maximum digits allowed is 10 got {VALUE}'],
+        min: [1000000000, 'minimum digits is 10 got {VALUE}'],
+        max: [9999999999, 'maximum digits allowed is 10 got {VALUE}'],
 
     },
     password: {
@@ -46,6 +50,5 @@ const userSchema = mongoose.Schema({
     },
     isAdmin: Boolean
 });
-
 const User = mongoose.model('User', userSchema);
 module.exports = User;

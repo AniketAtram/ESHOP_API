@@ -4,7 +4,7 @@ const addressSchema = mongoose.Schema({
         type: String,
         required: [true, 'name cannot be empty!'],
         minLength: [3, 'Must be minimum 3 characters long.'],
-        trim: true
+        trim: true,
     },
     city: {
         type: String,

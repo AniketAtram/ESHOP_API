@@ -3,7 +3,6 @@ const {
     NOT_FOUND
 } = require('./../utils/statusCodes');
 const User = require('./../model/userModel');
-
 // GET ALL USERS IN THE DATABASE
 exports.getUser = async (req, res) => {
     try {
@@ -17,7 +16,6 @@ exports.getUser = async (req, res) => {
         });
     } catch (err) {
         res.status(NOT_FOUND).json({
-            status: "No data found",
             message: err
         });
     }
@@ -32,8 +30,9 @@ exports.addUser = async (req, res) => {
             message: "Data inserted successfully!"
         });
     } catch (err) {
+        // let error = err.message.split(" ")[0];
+        // console.log(error);
         res.status(NOT_FOUND).json({
-            status: "Internal Server Error",
             message: err.message
         });
     }
